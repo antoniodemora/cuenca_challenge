@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  cuenca_challenge:
+    build:
+      context: .
+    ports:
+      - '8000:8000'
+    volumes:
+      - ./:/cuenca_challenge
+    command: >
+      sh -c "python tests.py && python nqueen.py"
+    environment:
+      - DB_HOST=db
+      - DB_NAME=cuenca
+      - DB_USER=postgres
+      - DB_PASS=supersecretpassword
+    depends_on:
+      - db
+  db:
+    image: postgres:10-alpine
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_DB=cuenca
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=supersecretpassword
