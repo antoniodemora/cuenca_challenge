@@ -19,7 +19,7 @@ class NQueen(Base):
 
 def find_nqueen(n=8, display=True):
     if n<8:
-        raise Exception('n must be grater than or equal 8')
+        raise ValueError('n must be grater than or equal 8')
     sol = 0
     cols = range(n)
     result = []
