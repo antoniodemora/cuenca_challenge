@@ -14,7 +14,7 @@ services:
       - DB_HOST=db
       - DB_NAME=cuenca
       - DB_USER=postgres
-      - DB_PASS=supersecretpassword
+      - DB_PASSWD=supersecretpassword
     depends_on:
       - db
   db:
