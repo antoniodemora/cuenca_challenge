@@ -46,7 +46,7 @@ if __name__ == '__main__':
 
     Session = sessionmaker(bind=engine)
 
-    for i in range(8,13):
+    for i in range(8,12):
         solution_count, solution_set = find_nqueen(i, False)
         session = Session()
         n_queen = NQueen(n=i, solution_count=solution_count)
